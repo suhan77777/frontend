@@ -14,7 +14,7 @@ RUN apt-get update \
     && apt-get install -y netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
-ADD devicehive-frontend/target/devicehive-frontend-${DH_VERSION}-boot.jar /opt/devicehive/
+ADD /home/smarf/devicehive-frontend-${DH_VERSION}-boot.jar /opt/devicehive/
 #start script
 ADD dockerfiles/devicehive-frontend/devicehive-start.sh /opt/devicehive/
 
