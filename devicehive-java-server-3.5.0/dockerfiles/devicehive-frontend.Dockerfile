@@ -14,9 +14,11 @@ RUN apt-get update \
     && apt-get install -y netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
-ADD devicehive-frontend-${DH_VERSION}-boot.jar /opt/devicehive/
+ADD devicehive-frontend-3.5.0-boot.jar /opt/devicehive/
 #start script
 ADD devicehive-frontend/devicehive-start.sh /opt/devicehive/
+
+ADD test01.txt /opt/devicehive/
 
 VOLUME ["/var/log/devicehive"]
 
