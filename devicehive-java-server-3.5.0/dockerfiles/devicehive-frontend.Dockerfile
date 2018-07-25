@@ -16,7 +16,7 @@ RUN apt-get update \
 
 ADD devicehive-frontend-${DH_VERSION}-boot.jar /opt/devicehive/
 #start script
-ADD dockerfiles/devicehive-frontend/devicehive-start.sh /opt/devicehive/
+ADD devicehive-frontend/devicehive-start.sh /opt/devicehive/
 
 VOLUME ["/var/log/devicehive"]
 
