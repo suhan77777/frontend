@@ -63,33 +63,33 @@ while true; do
     sleep 3
 done
 
-echo "Starting DeviceHive frontend"
-java -server -Xms1g -Xmx2g -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:+DisableExplicitGC -XX:+HeapDumpOnOutOfMemoryError -XX:+ExitOnOutOfMemoryError -jar \
--Dacks="${DH_ACKS:-1}" \
--Dauto.commit.interval.ms="${DH_AUTO_COMMIT_INTERVAL_MS:-5000}" \
--Dbatch.size="${DH_BATCH_SIZE:-98304}" \
--Dbootstrap.servers="${DH_KAFKA_BOOTSTRAP_SERVERS}" \
--Dcom.devicehive.log.level="${DH_LOG_LEVEL:-WARN}" \
--Denable.auto.commit="${DH_ENABLE_AUTO_COMMIT:-true}" \
--Dfetch.max.wait.ms="${DH_FETCH_MAX_WAIT_MS:-100}" \
--Dfetch.min.bytes="${DH_FETCH_MIN_BYTES:-1}" \
--Dhazelcast.cluster.members="${HC_MEMBERS}:${HC_PORT}" \
--Dhazelcast.group.name="${HC_GROUP_NAME}" \
--Dhazelcast.group.password="${HC_GROUP_PASSWORD}" \
--Dproxy.connect="${DH_WS_PROXY:-localhost:3000}" \
--Dproxy.worker.threads="${DH_WS_PROXY_THREADS:-3}" \
--Dreplication.factor="${DH_REPLICATION_FACTOR:-1}" \
--Droot.log.level="${ROOT_LOG_LEVEL:-WARN}" \
--Drpc.client.response-consumer.threads="${DH_RPC_CLIENT_RES_CONS_THREADS:-3}" \
--Dserver.context-path=/api \
--Dserver.port=8080 \
--Dauth.base.url="${DH_AUTH_URL}" \
--Dspring.datasource.url="jdbc:postgresql://${DH_POSTGRES_ADDRESS}:${DH_POSTGRES_PORT:-5432}/${DH_POSTGRES_DB}" \
--Dspring.datasource.username="${DH_POSTGRES_USERNAME}" \
--Dspring.datasource.password="${DH_POSTGRES_PASSWORD}" \
--Dzookeeper.connect="${DH_ZK_ADDRESS}:${DH_ZK_PORT:-2181}" \
--Dzookeeper.connectionTimeout="${DH_ZK_CONNECTIONTIMEOUT:-8000}" \
--Dzookeeper.sessionTimeout="${DH_ZK_SESSIONTIMEOUT:-10000}" \
-"./devicehive-frontend-${DH_VERSION}-boot.jar" &
-PID=$!
-wait "$PID"
+# echo "Starting DeviceHive frontend"
+# java -server -Xms1g -Xmx2g -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:+DisableExplicitGC -XX:+HeapDumpOnOutOfMemoryError -XX:+ExitOnOutOfMemoryError -jar \
+# -Dacks="${DH_ACKS:-1}" \
+# -Dauto.commit.interval.ms="${DH_AUTO_COMMIT_INTERVAL_MS:-5000}" \
+# -Dbatch.size="${DH_BATCH_SIZE:-98304}" \
+# -Dbootstrap.servers="${DH_KAFKA_BOOTSTRAP_SERVERS}" \
+# -Dcom.devicehive.log.level="${DH_LOG_LEVEL:-WARN}" \
+# -Denable.auto.commit="${DH_ENABLE_AUTO_COMMIT:-true}" \
+# -Dfetch.max.wait.ms="${DH_FETCH_MAX_WAIT_MS:-100}" \
+# -Dfetch.min.bytes="${DH_FETCH_MIN_BYTES:-1}" \
+# -Dhazelcast.cluster.members="${HC_MEMBERS}:${HC_PORT}" \
+# -Dhazelcast.group.name="${HC_GROUP_NAME}" \
+# -Dhazelcast.group.password="${HC_GROUP_PASSWORD}" \
+# -Dproxy.connect="${DH_WS_PROXY:-localhost:3000}" \
+# -Dproxy.worker.threads="${DH_WS_PROXY_THREADS:-3}" \
+# -Dreplication.factor="${DH_REPLICATION_FACTOR:-1}" \
+# -Droot.log.level="${ROOT_LOG_LEVEL:-WARN}" \
+# -Drpc.client.response-consumer.threads="${DH_RPC_CLIENT_RES_CONS_THREADS:-3}" \
+# -Dserver.context-path=/api \
+# -Dserver.port=8080 \
+# -Dauth.base.url="${DH_AUTH_URL}" \
+# -Dspring.datasource.url="jdbc:postgresql://${DH_POSTGRES_ADDRESS}:${DH_POSTGRES_PORT:-5432}/${DH_POSTGRES_DB}" \
+# -Dspring.datasource.username="${DH_POSTGRES_USERNAME}" \
+# -Dspring.datasource.password="${DH_POSTGRES_PASSWORD}" \
+# -Dzookeeper.connect="${DH_ZK_ADDRESS}:${DH_ZK_PORT:-2181}" \
+# -Dzookeeper.connectionTimeout="${DH_ZK_CONNECTIONTIMEOUT:-8000}" \
+# -Dzookeeper.sessionTimeout="${DH_ZK_SESSIONTIMEOUT:-10000}" \
+# "./devicehive-frontend-${DH_VERSION}-boot.jar" &
+# PID=$!
+# wait "$PID"
